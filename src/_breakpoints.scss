@@ -1,0 +1,6 @@
+$xl: 1400px;
+@media screen and (min-width: $xl) {
+  .navbar {
+    height: 100px;
+  }
+}

@@ -1,35 +1,4 @@
-// .navigation {
-//   min-height: 70px;
-//   height: 15vh;
-//   max-height: 100px;
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-between;
-
-//   align-items: center;
-
-//   .logo-container {
-//     height: 100%;
-//     width: 50%;
-//     align-items: center;
-//     padding: 25px;
-//     display: flex;
-//   }
-
-//   .nav-links-container {
-//     width: 50%;
-//     height: 100%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: flex-end;
-
-//     .nav-link {
-//       padding: 10px 25px;
-//       cursor: pointer;
-//       text-decoration: none;
-//     }
-//   }
-// }
+@import "../../breakpoints";
 .navbar {
   min-height: 70px;
 
