@@ -30,7 +30,7 @@ function Navigation() {
         >
           <ul className="navbar-nav ">
             <li className="nav-item">
-              <Link className="nav-link" aria-current="page" to="/signin">
+              <Link className="nav-link" aria-current="page" to="/authentication">
                 Sing In
               </Link>
             </li>

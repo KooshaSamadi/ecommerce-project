@@ -2,9 +2,9 @@ import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
-  signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 // web app's Firebase configuration
@@ -33,22 +33,38 @@ export const signInWithGooglePopup = () =>
 export const db = getFirestore();
 
 //Create user document and users collection
-export const createUserDocumentFromAuth = async (userAuth) => {
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  additionalInformation = {}
+) => {
+  if (!userAuth) return;
   const userDocRef = doc(db, "users", userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   if (!userSnapshot.exists()) {
-    const { displayName, email, photoUrl } = userAuth.reloadUserInfo;
+    const { displayName, email, photoURL } = userAuth;
+    const providerId = await userAuth.providerData[0].providerId;
     const createdAt = new Date();
     try {
       await setDoc(userDocRef, {
         displayName,
-        email,
-        photoUrl,
+        
+        photoURL,email,
+        providerId,
         createdDate: createdAt,
+        ...additionalInformation,
       });
     } catch (error) {
       console.log("Error in creation of user by setDoc", error.message);
     }
-  } 
+  }
   return userDocRef;
+};
+
+//Native provider by email/password
+export const createUserDocumentFromEmailAndPassword = async (
+  email,
+  password
+) => {
+  if (!email || !password) return;
+  return await createUserWithEmailAndPassword(auth, email, password);
 };
