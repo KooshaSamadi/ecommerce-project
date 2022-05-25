@@ -1,7 +1,14 @@
 .signup-container {
   padding-right: 5rem;
+  margin-top: 2rem;
   h2 {
     margin: 10px 0px;
+    font-size: 35px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
+  }
+  span {
+    font-size: 20px;
   }
   .button-container {
     min-width: 165px;
@@ -26,28 +33,6 @@
       color: black;
       border: 1px solid black;
       overflow: hidden;
-    }
-
-    &.google-sign-in {
-      background-color: #4285f4;
-      color: white;
-
-      &:hover {
-        background-color: #357ae8;
-        border: none;
-      }
-    }
-
-    &.inverted {
-      background-color: white;
-      color: black;
-      border: 1px solid black;
-
-      &:hover {
-        background-color: black;
-        color: white;
-        border: none;
-      }
     }
   }
 }
