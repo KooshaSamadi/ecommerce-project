@@ -1,24 +1,49 @@
 @import "../../breakpoints";
 .navbar {
-  min-height: 70px;
-
+  min-height: 100px;
   .logo-container {
     height: 100%;
-    width: 50%;
+    width: 100%;
     align-items: center;
-    padding: 25px;
+    padding-left: 50px !important;
     display: flex;
+    .navbar-brand {
+      transition: all 0.5s;
+
+      &:hover {
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+    }
   }
 
   .navbar-nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    padding-right: 50px;
+
     .nav-item {
       white-space: nowrap;
       margin: 10px 25px;
       cursor: pointer;
       text-decoration: none;
+      a {
+        color: black;
+        font-size: 20px;
+        transition: all 0.5s;
+        &:hover {
+          color: blue;
+          -moz-transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          -o-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          transform: scale(1.1);
+        }
+      }
     }
   }
 }

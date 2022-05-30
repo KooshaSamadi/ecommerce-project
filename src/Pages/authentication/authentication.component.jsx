@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useContext } from "react";
 import "./authentication.styles.scss";
 import {
   signInWithGooglePopup,
@@ -6,10 +6,13 @@ import {
 } from "../../Utils/firebase/firebase.utils";
 import SingUpForm from "../../Components/singUpForm/singUpForm.component.jsx";
 import SignInForm from "../../Components/signInForm/signInForm.component";
+import { UserContext } from "../../Contexts/user.context";
+
 function Authentication() {
+  const { setCurrentUser } = useContext(UserContext);
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
-    console.log(user);
+    
     const userDocRef = await createUserDocumentFromAuth(user);
   };
 

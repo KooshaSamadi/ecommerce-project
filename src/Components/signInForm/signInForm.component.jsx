@@ -9,18 +9,25 @@ const primaryValues = { email: "", password: "" };
 function SignInForm({ logGoogleUser }) {
   const [formFields, setFormFields] = useState(primaryValues);
   const { email, password } = formFields;
+  //getting function from user Context
 
   //console.log(formFields);
   const changeHandler = (event) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
+
+  const resetFormFields = () => {
+    setFormFields(() => primaryValues);
+  };
+
   //For modal
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const submitHandler = async (event) => {
     event.preventDefault();
     const response = await signUsernWithEmailAndPassword(email, password);
+    console.log(response);
     switch (response.code) {
       case "auth/wrong-password":
         setIsOpen(true);
@@ -33,6 +40,9 @@ function SignInForm({ logGoogleUser }) {
       case "auth/user-not-found":
         setIsOpen(true);
         setMessage("There is no user with this credentials");
+        //if everything is correct
+        break;
+      case undefined:
         break;
       default:
         setIsOpen(true);
@@ -40,6 +50,7 @@ function SignInForm({ logGoogleUser }) {
         console.log(response.message);
         break;
     }
+    resetFormFields();
   };
   //modal state
 

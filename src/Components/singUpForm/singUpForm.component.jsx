@@ -26,7 +26,9 @@ function SingUpForm() {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
-
+  const resetFormFields = () => {
+    setFormFields(() => primaryFormFields);
+  };
   const submitHandler = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
@@ -46,6 +48,7 @@ function SingUpForm() {
       setIsOpen(true);
       setMessage(error.message);
     }
+    resetFormFields();
   };
 
   return (
