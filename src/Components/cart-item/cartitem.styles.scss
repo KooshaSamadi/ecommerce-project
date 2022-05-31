@@ -1,0 +1,17 @@
+.cart-item {
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+  img {
+    width: 30%;
+    margin-right: 0.7rem;
+  }
+  .cart-itemDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 70%;
+    font-size: 16px;
+  }
+}

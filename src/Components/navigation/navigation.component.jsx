@@ -1,17 +1,18 @@
-import { React, Fragment, useContext } from "react";
+import { React, Fragment, useContext, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import "./navigation.styles.scss";
 import { ReactComponent as Ecom } from "../../Assets/ecommerce.svg";
 import { UserContext } from "../../Contexts/user.context";
 import { singOutUSer } from "../../Utils/firebase/firebase.utils";
 import CardIcon from "../cart-icon/cart-icon.component";
+import CartDropDown from "../cart-dropdown/cart-dropdown.jsx";
 function Navigation() {
   const { currentUser } = useContext(UserContext);
-  //console.log(currentUser);
+  const [cartToggle, setCartToggle] = useState(false);
 
   return (
     <Fragment>
-      <nav className="navbar navbar-expand-sm navbar-light ">
+      <nav className="navbar navbar-expand-sm navbar-light  ">
         <div className="container-fluid logo-container">
           <Link className="navbar-brand" to="/">
             <Ecom />
@@ -44,10 +45,11 @@ function Navigation() {
               </Link>
             </li>
             <li className="nav-item">
-              <CardIcon />
+              <CardIcon setCartToggle={setCartToggle} cartToggle={cartToggle} />
             </li>
           </ul>
         </div>
+        {cartToggle && <CartDropDown />}
       </nav>
       <Outlet />
     </Fragment>
