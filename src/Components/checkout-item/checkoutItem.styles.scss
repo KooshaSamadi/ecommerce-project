@@ -1,0 +1,15 @@
+tr {
+  th {
+    img {
+      width: 20%;
+      min-width: 80px;
+    }
+  }
+  td {
+    font-size: 20px;
+    img {
+      cursor: pointer;
+      display: inline;
+    }
+  }
+}

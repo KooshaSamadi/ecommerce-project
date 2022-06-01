@@ -13,7 +13,10 @@
 
   .empty-message {
     font-size: 18px;
-    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
 
   .cart-items {
@@ -23,10 +26,12 @@
     overflow-y: auto;
   }
 
-  button {
+  a {
     margin-top: auto;
     background-color: black;
     color: white;
     padding: 11px 10px;
+    text-decoration: none;
+    text-align: center;
   }
 }
