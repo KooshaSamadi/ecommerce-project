@@ -1,18 +1,18 @@
 import "./shop.styles.scss";
-import { React, useContext } from "react";
-import { ProductsContext } from "../../Contexts/products.context";
-import ProductCard from "../../Components/product-card/product-card.compnent";
+import { React, useContext, Fragment } from "react";
+import { CategoriesContext } from "../../Contexts/categories.context";
+import CategotyPreview from "../../Components/category-preview/category-preview.component";
 function Shop() {
-  const { products } = useContext(ProductsContext);
+  const { categoriesMap } = useContext(CategoriesContext);
   // console.log(products);
   return (
-    <section className="shop container-xxl">
-      <div className="row">
-        {products.map((product) => (
-          <ProductCard key={product.id} data={product} />
-        ))}
-      </div>
-    </section>
+    <Fragment>
+      {Object.keys(categoriesMap).map((title) => (
+        //  console.log(categoriesMap),
+        <CategotyPreview key={title} title={title}></CategotyPreview>
+      ))}
+     
+    </Fragment>
   );
 }
 export default Shop;

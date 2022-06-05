@@ -1,10 +1,11 @@
-.shop {
+.category-preview-container {
   margin-bottom: 1.5rem;
   h2 {
     margin-bottom: 1.5rem;
-    span {
+    a {
       font-size: 35px;
       font-weight: 500;
+      cursor: pointer;
     }
   }
 }
