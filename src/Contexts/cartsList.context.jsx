@@ -41,8 +41,9 @@ const clearItemfromCartsList = (cartsList, productToRemove) => {
 export const CartsProvider = ({ children }) => {
   const [cartsList, setCartsList] = useState([]);
   var [totalPrice, setTotalPrice] = useState(0);
-  //Handling total Quantity of card items in cart drop down menu
-  var totalQuant = 0;
+  var [totalQuant, setTotalQuant] = useState(0);
+  const [cartToggle, setCartToggle] = useState(false);
+
   cartsList.map(({ quantity }) => (totalQuant += quantity));
 
   const itemAdderHelper = (productToadd) => {
@@ -68,12 +69,13 @@ export const CartsProvider = ({ children }) => {
 
   const value = {
     cartsList,
-    setCartsList,
     itemAdderHelper,
     totalQuant,
     decrementItemHandler,
     clearItemHandler,
     totalPrice,
+    cartToggle,
+    setCartToggle,
   };
 
   return (

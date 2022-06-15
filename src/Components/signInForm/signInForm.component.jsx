@@ -27,7 +27,7 @@ function SignInForm({ logGoogleUser }) {
   const submitHandler = async (event) => {
     event.preventDefault();
     const response = await signUsernWithEmailAndPassword(email, password);
-    console.log(response);
+   // console.log(response);
     switch (response.code) {
       case "auth/wrong-password":
         setIsOpen(true);

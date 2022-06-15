@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function CartDropDown() {
   const { cartsList } = useContext(CartsContext);
-  console.log(cartsList);
+ // console.log(cartsList);
   return (
     <div className="cart-dropdown-container">
       <div className="cart-items">

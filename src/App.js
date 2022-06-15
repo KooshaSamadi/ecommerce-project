@@ -5,6 +5,7 @@ import Homepage from "./Pages/homepage/homepage.component";
 import Navigation from "./Components/navigation/navigation.component";
 import Authentication from "./Pages/authentication/authentication.component";
 import Shop from "./Pages/shop/shop.component";
+
 import Category from "./Components/category/category.component";
 import Checkout from "./Pages/checkout/checkout.component";
 function App() {

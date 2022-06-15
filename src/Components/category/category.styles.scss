@@ -1,0 +1,11 @@
+.category-container {
+  h1 {
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: center;
+    span {
+      font-size: 35px;
+      font-weight: 700;
+    }
+  }
+}

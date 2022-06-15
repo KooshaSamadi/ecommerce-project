@@ -1,14 +1,16 @@
-import { React, Fragment, useContext, useState } from "react";
+import { React, Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import "./navigation.styles.scss";
 import { ReactComponent as Ecom } from "../../Assets/ecommerce.svg";
 import { UserContext } from "../../Contexts/user.context";
+import { CartsContext } from "../../Contexts/cartsList.context";
 import { singOutUSer } from "../../Utils/firebase/firebase.utils";
 import CardIcon from "../cart-icon/cart-icon.component";
 import CartDropDown from "../cart-dropdown/cart-dropdown.jsx";
 function Navigation() {
   const { currentUser } = useContext(UserContext);
-  const [cartToggle, setCartToggle] = useState(false);
+  const { setCartToggle, cartToggle } = useContext(CartsContext);
+
 
   return (
     <Fragment>
@@ -26,7 +28,7 @@ function Navigation() {
           <ul className="navbar-nav ">
             <li className="nav-item">
               {currentUser ? (
-                <span className="nav-item nav-link" onClick={singOutUSer}>
+                <span className="sign-out" onClick={singOutUSer}>
                   Sing out
                 </span>
               ) : (
@@ -45,7 +47,7 @@ function Navigation() {
               </Link>
             </li>
             <li className="nav-item">
-              <CardIcon setCartToggle={setCartToggle} cartToggle={cartToggle} />
+              <CardIcon />
             </li>
           </ul>
         </div>

@@ -2,8 +2,8 @@ import { React, useContext } from "react";
 import { ReactComponent as ShoppingIcon } from "../../Assets/shopping-bag.svg";
 import "./cart-icon.styles.scss";
 import { CartsContext } from "../../Contexts/cartsList.context";
-function CardIcon({ setCartToggle, cartToggle }) {
-  const { totalQuant } = useContext(CartsContext);
+function CardIcon() {
+  const { totalQuant, setCartToggle, cartToggle } = useContext(CartsContext);
 
   return (
     <div
