@@ -5,15 +5,28 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  .payment-card {
-
-    padding: 3rem 0rem;
-  
-    min-width: 30rem;
-    min-height: 5rem;
-    text-align: center;
+  h2 {
+    font-size: 25px;
   }
-  .btn-payment {
- 
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .payment-card {
+      padding: 3rem 0rem;
+      min-width: 30rem;
+      min-height: 5rem;
+      text-align: center;
+    }
+    .btn-payment {
+      padding: 0.5rem 2rem;
+      &:focus {
+        outline: none !important;
+      }
+    }
+    .spinner-border {
+      margin-right: 5px;
+    }
   }
 }
